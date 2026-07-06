@@ -55,6 +55,11 @@ SentinelDesk/
 * Connected to the USGS Earthquake API
 * Added timeout and exception handling for network requests
 
+# Milestone 1.2 - Input Data Generalisation
+
+* Created a generalized incident input type for any json input
+* Normalized the input so it stays constant across the input platforms
+* UTC Timestamp normalization
 
 
 # Current Progress
@@ -63,7 +68,7 @@ SentinelDesk/
 
 * [x] Project setup
 * [x] USGS API integration
-* [ ] Normalize incident data
+* [x] Normalize incident data
 * [ ] SQLite database
 * [ ] Streamlit dashboard
 * [ ] Interactive map
