@@ -61,6 +61,11 @@ SentinelDesk/
 * Normalized the input so it stays constant across the input platforms
 * UTC Timestamp normalization
 
+# Milestone 1.3 - Collector Manager
+
+* Now we have curated a manager that will store the data from different sources into a common list
+
+
 
 # Current Progress
 
@@ -69,10 +74,15 @@ SentinelDesk/
 * [x] Project setup
 * [x] USGS API integration
 * [x] Normalize incident data
+* [x] Multi-source incident ingestion
 * [ ] SQLite database
 * [ ] Streamlit dashboard
 * [ ] Interactive map
 
+
+## TODO
+* Extend Incident to support polygon geometries by day 10
+* Add severity score metric in the prompt
 
 
 ## Learning Goals

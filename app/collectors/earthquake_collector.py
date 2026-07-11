@@ -1,4 +1,4 @@
-import requests #--> requests used to make http requests
+import requests # type: ignore #--> requests used to make http requests
 from app.models.incident import Incident
 from datetime import datetime,timezone
 

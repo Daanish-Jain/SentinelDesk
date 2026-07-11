@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 from typing import Any
+from app.models.ai_analysis import AIAnalysis
 
 @dataclass
 class Incident:
@@ -16,4 +17,5 @@ class Incident:
     timestamp : datetime
     confidence : float
     raw_data : dict[str,Any] #because it loads a json format
-    description : str | None=None
+    description : str | None = None
+    analysis : AIAnalysis | None=None
