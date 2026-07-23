@@ -75,6 +75,7 @@ SentinelDesk/
 * [x] USGS API integration
 * [x] Normalize incident data
 * [x] Multi-source incident ingestion
+* [x] AI Implementation (Gemini) to get analysis of input report
 * [ ] SQLite database
 * [ ] Streamlit dashboard
 * [ ] Interactive map

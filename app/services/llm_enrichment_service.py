@@ -18,8 +18,10 @@ class LLMEnrichmentService:
                 
         self.client = genai.Client(api_key = api_key)
         
-        self.model_name = "gemini-2.5-flash"
-             
+        self.model_name = "gemini-3.5-flash-lite"
+        
+        #for model in self.client.models.list():
+        #    print(model.name)     
     
     def _build_prompt(self, incident: Incident) -> str: # Underscore used before the function to make it private (internal function)
         prompt = DISASTER_ANALYSIS_PROMPT.format(
@@ -27,16 +29,20 @@ class LLMEnrichmentService:
             description = incident.description or "",
             location    = incident.location,
             severity    = incident.severity_level,
-            source       = incident.source
+            source      = incident.source
         )    
         return prompt
    
     
     def _call_llm(self, prompt):
-        response = self.client.models.generate_content(
-            model = self.model_name,
-            contents = prompt)
-        return response
+        try:
+            response = self.client.models.generate_content(
+                model = self.model_name,
+                contents = prompt)
+            return response
+        except Exception as e:
+            print(e)
+            return None
     
     
     def _parse_response(self,response):
@@ -45,11 +51,18 @@ class LLMEnrichmentService:
         return analysis
     
     
-    def analyze(self, incident: Incident) -> AIAnalysis : 
+    def analyze(self, incident: Incident) -> Incident:
         prompt = self._build_prompt(incident)
-        
+
         response = self._call_llm(prompt)
-        
-        analysis = self._parse_response(response)
-        
-        return analysis
+
+        if response is None:
+            return incident
+
+        try:
+            analysis = self._parse_response(response)
+            incident.analysis = analysis
+        except Exception as e:
+            print(f"Parse Error: {e}")
+
+        return incident
