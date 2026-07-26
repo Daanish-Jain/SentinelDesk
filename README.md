@@ -65,6 +65,10 @@ SentinelDesk/
 
 * Now we have curated a manager that will store the data from different sources into a common list
 
+# Milestone 1.4 - Situation Report Generation
+
+* Created a situation report generator to get a daily report 
+* Showcasing Incident counts, source counts, location counts and top representative situations
 
 
 # Current Progress
@@ -76,6 +80,7 @@ SentinelDesk/
 * [x] Normalize incident data
 * [x] Multi-source incident ingestion
 * [x] AI Implementation (Gemini) to get analysis of input report
+* [x] Generatede Situation Report of the day
 * [ ] SQLite database
 * [ ] Streamlit dashboard
 * [ ] Interactive map

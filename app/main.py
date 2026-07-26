@@ -3,6 +3,7 @@ from app.managers.collector_manager import CollectorManager
 from app.managers.enrichment_manager import EnrichmentManager
 from app.storage.incident_repository import IncidentRepository
 from app.managers.deduplication_manager import DeduplicationManager
+from app.reporting.situation_report_generator import SituationReportGenerator # type: ignore
 
 SEPERATOR = "_" * 40
 
@@ -10,6 +11,8 @@ collector_manager = CollectorManager()
 enrichment_manager = EnrichmentManager()
 deduplicator = DeduplicationManager()
 repository = IncidentRepository()
+report_generator = SituationReportGenerator()
+
 
 incidents = collector_manager.collect_all()
 print(f"Collected {len(incidents)} incidents")
@@ -19,10 +22,14 @@ incidents = deduplicator.deduplicate(incidents)
 print(f"After deduplication : {len(incidents)}")
 print(SEPERATOR)
 
-incidents = enrichment_manager.enrich(incidents)
+incidents = enrichment_manager.enrich(incidents) # ---> Enriching the incidents using AI
 
 repository.save(incidents)
-loaded_incidents = repository.load()
+loaded_incidents = repository.load()  
+
+report = report_generator.generate(loaded_incidents) # ---> Loading the report we generate
+
+report_generator.display_report(report) # ---> Displaying the report in our format
 
 print(f"Saved {len(incidents)} incidents")
 print(f"loaded {len(loaded_incidents)} incidents")
