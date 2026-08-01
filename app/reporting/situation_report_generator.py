@@ -2,7 +2,7 @@ from app.models.incident import Incident
 from datetime import datetime,timezone
 from app.reporting.report_models import SituationReport # type: ignore
 
-
+ENTER = "\n"
 SEPARATOR = "=" * 100
 class SituationReportGenerator : 
     def generate(self, incidents : list[Incident]):
@@ -32,32 +32,74 @@ class SituationReportGenerator :
         print(f"Generated At     : {report.generated_at}")
         print(f"Total Incidents  : {report.total_incidents}")
 
+        print(ENTER)
         print(SEPARATOR)
+        print(ENTER)
+        
+        # AI Summary
+        print("Executive Summary")
+        print("-" * 50)
 
+        if report.executive_summary:
+            print(report.executive_summary)
+        else:
+            print("No executive summary available.")
+
+        print(ENTER)
+        print(SEPARATOR)
+        print(ENTER)
+
+        # AI Recommendations
+        print("Recommendations")
+        print("-" * 50)
+
+        if report.recommendations:
+            for recommendation in report.recommendations:
+                print(f"• {recommendation}")
+        else:
+            print("No recommendations available.")
+        
+        print(ENTER)
+        print(SEPARATOR)
+        print(ENTER)
+        
+        # Category Counts
         print("Category Counts")
         for category, count in report.category_counts.items():
             print(f"  {category}: {count}")
 
+        print(ENTER)
         print(SEPARATOR)
+        print(ENTER)
 
+        # Urgency Counts
         print("Urgency Counts")
         for urgency, count in report.urgency_counts.items():
             print(f"  {urgency}: {count}")
 
+        print(ENTER)
         print(SEPARATOR)
+        print(ENTER)
 
+        # Source Counts
         print("Source Counts")
         for source, count in report.source_counts.items():
             print(f"  {source}: {count}")
 
+        print(ENTER)
         print(SEPARATOR)
+        print(ENTER)
 
+        # Location Counts
         print("Location Counts")
         for location, count in report.location_counts.items():
             print(f"  {location}: {count}")
 
+        print(ENTER)
         print(SEPARATOR)
+        print(ENTER)
 
+        # Representative Incidents
         print("Representative Incidents")
 
         for i, incident in enumerate(report.representative_incidents, start=1):
@@ -69,6 +111,9 @@ class SituationReportGenerator :
             print(f"   Source    : {incident.source}")
 
         print(SEPARATOR)
+#_________________________________________________________________________________
+
+    # FUNCTIONS
     
     def _count_categories(self, incidents: list[Incident]) -> dict[str,int]:
         count_cat = dict()
