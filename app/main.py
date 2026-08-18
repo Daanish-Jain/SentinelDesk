@@ -4,6 +4,7 @@ from app.managers.deduplication_manager import DeduplicationManager
 from app.managers.report_enrichment_manager import ReportEnrichmentManager
 from app.reporting.situation_report_generator import SituationReportGenerator
 from app.storage.incident_repository import IncidentRepository
+from app.storage.report_repository import ReportRepository
 
 collector_manager = CollectorManager()
 deduplicator = DeduplicationManager()
@@ -11,6 +12,7 @@ enrichment_manager = EnrichmentManager()
 report_generator = SituationReportGenerator()
 report_enrichment_manager = ReportEnrichmentManager()
 repository = IncidentRepository()
+report_repository = ReportRepository()
 
 # Collect incidents
 incidents = collector_manager.collect_all()
@@ -32,6 +34,11 @@ report = report_generator.generate(loaded_incidents)
 
 # AI enrichment of report
 report = report_enrichment_manager.enrich(report)
+report_repository.save(report)
+
+# Load and Generate for testing
+loaded_report = report_repository.load()
+report_generator.display_report(loaded_report)
 
 # Display report
-report_generator.display_report(report)
+#report_generator.display_report(report)
