@@ -1,6 +1,6 @@
 import requests # type: ignore #--> requests used to make http requests
 from app.models.incident import Incident
-from datetime import datetime,timezone
+from datetime import datetime
 
 class WeatherCollector:
     def __init__(self):
@@ -57,6 +57,14 @@ class WeatherCollector:
             incidents = []
             
             for feature in features:
+                properties = feature["properties"]
+
+                if not properties.get("headline"):
+                    continue
+                
+                if not properties.get("event"):
+                    continue
+                
                 incident = self._create_incident(feature)
                 incidents.append(incident)
             
