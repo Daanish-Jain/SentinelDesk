@@ -32,3 +32,32 @@ class IncidentResponse(BaseModel):
     description: str | None = None
 
     analysis: AIAnalysisResponse | None = None
+    
+    
+class SituationReportResponse(BaseModel):
+    generated_at: datetime
+    total_incidents: int
+
+    category_counts: dict[str, int]
+    urgency_counts: dict[str, int]
+    source_counts: dict[str, int]
+    location_counts: dict[str, int]
+
+    representative_incidents: list[IncidentResponse]
+
+    executive_summary: str | None = None
+    recommendations: list[str] | None = None
+
+
+class StatsResponse(BaseModel):
+    total_incidents: int
+    categories: dict[str, int]
+    urgencies: dict[str, int]
+    sources: dict[str, int]
+    locations: dict[str, int]
+
+
+class RefreshResponse(BaseModel):
+    status: str
+    incidents_collected: int
+    report_generated: bool

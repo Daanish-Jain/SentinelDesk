@@ -2,7 +2,12 @@ from fastapi import APIRouter, HTTPException
 from app.storage.report_repository import ReportRepository
 from app.storage.incident_repository import IncidentRepository
 from app.services.refresh_service import RefreshService
-from app.api.schemas import IncidentResponse
+from app.api.schemas import (
+    IncidentResponse,
+    SituationReportResponse,
+    StatsResponse,
+    RefreshResponse,
+)
 
 refresh_service = RefreshService()
 report_repository = ReportRepository()
@@ -26,7 +31,7 @@ def health():
     }
 
 
-@router.get("/report")
+@router.get("/report", response_model=SituationReportResponse)
 def get_report():
     report = report_repository.load()
     return report
@@ -52,7 +57,7 @@ def get_incident(incident_id: str):
     )
 
 
-@router.post("/refresh")
+@router.post("/refresh", response_model=RefreshResponse)
 def refresh_data():
     try:
         incidents, report = refresh_service.refresh()
@@ -70,7 +75,7 @@ def refresh_data():
         )
     
     
-@router.get("/stats")
+@router.get("/stats", response_model=StatsResponse)
 def get_stats():
     report = report_repository.load()
 
