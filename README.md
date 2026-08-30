@@ -60,33 +60,85 @@ SentinelDesk is an AI-powered situational awareness platform that aggregates rea
 
 ```text
 SentinelDesk/
-
 │
 ├── app/
+│   │
 │   ├── ai/
+│   │   └── ...
+│   │
 │   ├── api/
-│   │   ├── main.py
 │   │   ├── routes.py
 │   │   └── schemas.py
 │   │
 │   ├── collectors/
+│   │   ├── usgs_collector.py
+│   │   ├── weather_collector.py
+│   │   └── ...
+│   │
 │   ├── config/
+│   │   └── ...
+│   │
 │   ├── dashboard/
-│   ├── database/
+│   │   └── ...
+│   │
 │   ├── managers/
+│   │   ├── collector_manager.py
+│   │   ├── deduplication_manager.py
+│   │   ├── enrichment_manager.py
+│   │   └── report_enrichment_manager.py
+│   │
 │   ├── models/
-│   ├── prompts/
+│   │   ├── incident.py
+│   │   ├── ai_analysis.py
+│   │   └── ...
+│   │
 │   ├── reporting/
+│   │   ├── report_models.py
+│   │   └── situation_report_generator.py
+│   │
 │   ├── services/
+│   │   └── refresh_service.py
+│   │
 │   ├── storage/
+│   │   ├── incident_repository.py
+│   │   └── report_repository.py
+│   │
 │   └── utils/
+│       └── ...
 │
 ├── data/
 │   ├── incidents.json
 │   └── report.json
 │
+├── frontend/
+│   │
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Header.tsx
+│   │   │   └── Sidebar.tsx
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Dashboard.tsx
+│   │   │   └── Incidents.tsx
+│   │   │
+│   │   ├── services/
+│   │   │   └── api.ts
+│   │   │
+│   │   ├── types/
+│   │   │   ├── api.ts
+│   │   │   └── incident.ts
+│   │   │
+│   │   ├── App.tsx
+│   │   └── App.css
+│   │
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── ...
+│
 ├── docs/
+│
 ├── scripts/
+│
 ├── tests/
 │
 ├── README.md
@@ -192,17 +244,37 @@ SentinelDesk/
 
 # Current Progress
 
-**Week 1**
+**Backend**
 
-* [x] Project setup
-* [x] USGS API integration
-* [x] Normalize incident data
-* [x] Multi-source incident ingestion
-* [x] AI Implementation (Gemini) to get analysis of input report
-* [x] Generatede Situation Report of the day
-* [x] FastAPI Integration
-* [x] Streamlit dashboard
-* [ ] Interactive map
+[x] Data collection
+[x] Normalization
+[x] Multi-source ingestion
+[x] Deduplication
+[x] AI enrichment
+[x] Situation reports
+[x] Persistence
+[x] FastAPI
+[x] API response schemas
+[x] Error handling
+[x] Refresh endpoint
+[x] Statistics endpoint
+[x] Individual incident endpoint
+
+**Frontend
+
+[x] React application
+[x] Dashboard
+[x] API integration
+[x] Incident list
+[x] Search
+[x] Source filtering
+[x] Severity filtering
+[x] Clickable incidents
+[x] Incident detail view
+[ ] Polished AI analysis
+[ ] Map
+[ ] Better visualizations
+[ ] Advanced filtering
 
 
 ## TODO
