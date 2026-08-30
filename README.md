@@ -181,6 +181,15 @@ SentinelDesk/
 * Current Progress
 
 
+# Milestone 1.11 - Frontend
+
+* Created a Frontend for SentinelDesk using React-Vite
+* Established frontend API Layer
+* Created typescript models
+* Built the Dashboard
+* Built Incidents page with initial filtering implementation and clickable incident
+
+
 # Current Progress
 
 **Week 1**
@@ -192,15 +201,19 @@ SentinelDesk/
 * [x] AI Implementation (Gemini) to get analysis of input report
 * [x] Generatede Situation Report of the day
 * [x] FastAPI Integration
-* [ ] SQLite database
-* [ ] Streamlit dashboard
+* [x] Streamlit dashboard
 * [ ] Interactive map
 
 
 ## TODO
 * Extend Incident to support polygon geometries by day 10
 * Add severity score metric in the prompt
-
+* Timezone-aware incident timestamps
+* Compact incident table
+* Incident detail view
+* AI analysis visualization
+* Advanced incident filtering
+* Incident sorting
 
 ## Learning Goals
 
