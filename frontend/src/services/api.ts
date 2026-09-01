@@ -7,6 +7,7 @@ import type {
 
 const API_BASE_URL = "http://127.0.0.1:8000";
 
+
 export async function getReport(): Promise<SituationReport> {
   const response = await fetch(`${API_BASE_URL}/report`);
 
@@ -17,8 +18,11 @@ export async function getReport(): Promise<SituationReport> {
   return response.json();
 }
 
+
 export async function getIncidents(): Promise<Incident[]> {
-  const response = await fetch(`${API_BASE_URL}/incidents`);
+  const response = await fetch(
+    `${API_BASE_URL}/incidents`
+  );
 
   if (!response.ok) {
     throw new Error("Failed to fetch incidents");
@@ -26,6 +30,7 @@ export async function getIncidents(): Promise<Incident[]> {
 
   return response.json();
 }
+
 
 export async function getStats(): Promise<Stats> {
   const response = await fetch(`${API_BASE_URL}/stats`);
@@ -36,6 +41,7 @@ export async function getStats(): Promise<Stats> {
 
   return response.json();
 }
+
 
 export async function refreshData(): Promise<RefreshResponse> {
   const response = await fetch(`${API_BASE_URL}/refresh`, {

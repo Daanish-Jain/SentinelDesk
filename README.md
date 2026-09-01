@@ -233,7 +233,7 @@ SentinelDesk/
 * Current Progress
 
 
-# Milestone 1.11 - Frontend
+# Milestone 2.1 - Frontend Initialization
 
 * Created a Frontend for SentinelDesk using React-Vite
 * Established frontend API Layer
@@ -244,7 +244,7 @@ SentinelDesk/
 
 # Current Progress
 
-**Backend**
+@ BACKEND
 
 [x] Data collection
 [x] Normalization
@@ -260,7 +260,7 @@ SentinelDesk/
 [x] Statistics endpoint
 [x] Individual incident endpoint
 
-**Frontend
+@ FRONTEND
 
 [x] React application
 [x] Dashboard
@@ -271,8 +271,8 @@ SentinelDesk/
 [x] Severity filtering
 [x] Clickable incidents
 [x] Incident detail view
+[x] Map
 [ ] Polished AI analysis
-[ ] Map
 [ ] Better visualizations
 [ ] Advanced filtering
 
