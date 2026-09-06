@@ -272,6 +272,7 @@ SentinelDesk/
 [x] Clickable incidents
 [x] Incident detail view
 [x] Map
+[x] Situational Report
 [ ] Polished AI analysis
 [ ] Better visualizations
 [ ] Advanced filtering

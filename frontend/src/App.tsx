@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
+import LiveMap from "./pages/LiveMap";
 import Dashboard from "./pages/Dashboard";
 import Incidents from "./pages/Incidents";
+import Situationreport from "./pages/SituationReport";
 
 import {
   getReport,
@@ -162,40 +164,12 @@ function App() {
           <Incidents />
         )}
 
-        {activePage === "map" && (
-          <main className="placeholder-page">
-            <div className="panel">
-              <div className="panel-eyebrow">
-                MODULE
-              </div>
-
-              <h2>
-                Live Intelligence Map
-              </h2>
-
-              <p>
-                This module will be implemented next.
-              </p>
-            </div>
-          </main>
+        {activePage === "live-map" && (
+          <LiveMap />
         )}
 
         {activePage === "report" && (
-          <main className="placeholder-page">
-            <div className="panel">
-              <div className="panel-eyebrow">
-                MODULE
-              </div>
-
-              <h2>
-                Situation Report
-              </h2>
-
-              <p>
-                This module will be implemented next.
-              </p>
-            </div>
-          </main>
+          <Situationreport report={report} />
         )}
 
       </div>

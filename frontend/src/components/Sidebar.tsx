@@ -16,7 +16,7 @@ function Sidebar({ activePage, setActivePage }: SidebarProps) {
       icon: "◈",
     },
     {
-      id: "map",
+      id: "live-map",
       label: "Live Map",
       icon: "◎",
     },

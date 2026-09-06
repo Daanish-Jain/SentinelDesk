@@ -6,11 +6,15 @@ import {
     useMap,
 } from "react-leaflet";
 
+import MarkerClusterGroup from "react-leaflet-cluster";
+
 import { useEffect } from "react";
 
 import L from "leaflet";
 
 import "leaflet/dist/leaflet.css";
+import "react-leaflet-cluster/dist/assets/MarkerCluster.css";
+import "react-leaflet-cluster/dist/assets/MarkerCluster.Default.css";
 
 import type { Incident } from "../types/incident";
 
@@ -143,58 +147,70 @@ function IntelligenceMap({
 
                 {/* Incident markers */}
 
-                {mappableIncidents.map((incident) => (
+                <MarkerClusterGroup>
 
-                    <Marker
-                        key={incident.id}
-                        position={[
-                            incident.latitude!,
-                            incident.longitude!,
-                        ]}
-                        icon={createIncidentIcon(
-                            incident.severity_level
-                        )}
-                        eventHandlers={{
-                            click: () => {
-                                onIncidentSelect?.(incident);
-                            },
-                        }}
-                    >
+                    {mappableIncidents.map((incident) => (
 
-                        <Popup>
+                        <Marker
+                            key={incident.id}
+                            position={[
+                                incident.latitude!,
+                                incident.longitude!,
+                            ]}
+                            icon={createIncidentIcon(
+                                incident.severity_level
+                            )}
+                            eventHandlers={{
+                                click: () => {
+                                    onIncidentSelect?.(incident);
+                                },
+                            }}
+                        >
 
-                            <div className="incident-popup">
+                            <Popup>
+                                <div className="incident-popup">
 
-                                <strong>
-                                    {incident.title}
-                                </strong>
+                                    <strong>
+                                        {incident.title}
+                                    </strong>
 
-                                <br />
+                                    <br />
+                                    <br />
 
-                                {incident.location}
+                                    <strong>
+                                        Calamity:
+                                    </strong>{" "}
+                                    {incident.incident_type}
 
-                                <br />
-                                <br />
+                                    <br />
 
-                                <strong>
-                                    Severity:
-                                </strong>{" "}
-                                {incident.severity_level}
+                                    <strong>
+                                        Location:
+                                    </strong>{" "}
+                                    {incident.location}
 
-                                <br />
+                                    <br />
 
-                                <strong>
-                                    Source:
-                                </strong>{" "}
-                                {incident.source}
+                                    <strong>
+                                        Severity:
+                                    </strong>{" "}
+                                    {incident.severity_level}
 
-                            </div>
+                                    <br />
 
-                        </Popup>
+                                    <strong>
+                                        Source:
+                                    </strong>{" "}
+                                    {incident.source}
 
-                    </Marker>
+                                </div>
+                            </Popup>
 
-                ))}
+                        </Marker>
+
+                    ))}
+
+                </MarkerClusterGroup>
 
             </MapContainer>
 

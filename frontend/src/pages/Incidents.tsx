@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { getIncidents } from "../services/api";
 import type { Incident } from "../types/incident";
-import IntelligenceMap from "../components/IntelligenceMap";
 
 function getSeverityClass(level: string) {
     switch (level.toLowerCase()) {
@@ -246,10 +245,6 @@ export default function Incidents() {
             {!loading && !error && (
 
                 <>
-                    <IntelligenceMap
-                        incidents={filteredIncidents}
-                        onIncidentSelect={setSelectedIncident}
-                    />
 
                     {selectedIncident ? (
 
