@@ -25,6 +25,11 @@ function Sidebar({ activePage, setActivePage }: SidebarProps) {
       label: "Situation Report",
       icon: "▤",
     },
+    {
+      id: "triage",
+      label: "Triage",
+      icon: "âš ",
+    },
   ];
 
   return (
@@ -58,13 +63,6 @@ function Sidebar({ activePage, setActivePage }: SidebarProps) {
       </div>
 
       <div className="sidebar-bottom">
-        <div className="system-status">
-          <span className="status-dot" />
-          <div>
-            <div className="status-title">SYSTEM OPERATIONAL</div>
-            <div className="status-subtitle">All services responding</div>
-          </div>
-        </div>
 
         <div className="version">
           SentinelDesk v1.0.0

@@ -6,6 +6,7 @@ import LiveMap from "./pages/LiveMap";
 import Dashboard from "./pages/Dashboard";
 import Incidents from "./pages/Incidents";
 import Situationreport from "./pages/SituationReport";
+import Triage from "./pages/Triage";
 
 import {
   getReport,
@@ -172,6 +173,9 @@ function App() {
           <Situationreport report={report} />
         )}
 
+        {activePage === "triage" && (
+          <Triage />
+        )}
       </div>
 
     </div>

@@ -21,6 +21,7 @@ class Incident:
     longitude: float | None
     description: str | None = None
     analysis: AIAnalysis | None = None
+    triage_level: str | None = None
 
     def to_dict(self) -> dict:
         data = asdict(self)

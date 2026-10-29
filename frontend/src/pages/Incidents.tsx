@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { getIncidents } from "../services/api";
 import type { Incident } from "../types/incident";
+import IncidentDetail from "../components/IncidentDetail";
 
 function getSeverityClass(level: string) {
     switch (level.toLowerCase()) {
@@ -248,176 +249,12 @@ export default function Incidents() {
 
                     {selectedIncident ? (
 
-                        /* =========================
-                           INCIDENT DETAIL
-                           ========================= */
-
-                        <div className="incident-detail">
-
-                            <button
-                                className="back-button"
-                                onClick={() =>
-                                    setSelectedIncident(null)
-                                }
-                            >
-                                ← Back to incidents
-                            </button>
-
-
-                            {/* DETAIL HEADER */}
-
-                            <div className="detail-header">
-
-                                <div>
-
-                                    <div className="eyebrow">
-                                        INCIDENT INTELLIGENCE
-                                    </div>
-
-                                    <h2>
-                                        {selectedIncident.title}
-                                    </h2>
-
-                                    <p>
-                                        {selectedIncident.incident_type}
-                                    </p>
-
-                                </div>
-
-
-                                <span
-                                    className={`severity-badge ${getSeverityClass(
-                                        selectedIncident.severity_level
-                                    )}`}
-                                >
-                                    {selectedIncident.severity_level}
-                                </span>
-
-                            </div>
-
-
-                            {/* INCIDENT METADATA */}
-
-                            <div className="detail-grid">
-
-                                <div>
-                                    <span>
-                                        Source
-                                    </span>
-
-                                    <strong>
-                                        {selectedIncident.source}
-                                    </strong>
-                                </div>
-
-
-                                <div>
-                                    <span>
-                                        Location
-                                    </span>
-
-                                    <strong>
-                                        {selectedIncident.location}
-                                    </strong>
-                                </div>
-
-
-                                <div>
-                                    <span>
-                                        Severity Score
-                                    </span>
-
-                                    <strong>
-                                        {selectedIncident.severity_score}
-                                    </strong>
-                                </div>
-
-
-                                <div>
-                                    <span>
-                                        Confidence
-                                    </span>
-
-                                    <strong>
-                                        {(
-                                            selectedIncident.confidence *
-                                            100
-                                        ).toFixed(0)}
-                                        %
-                                    </strong>
-                                </div>
-
-
-                                <div>
-                                    <span>
-                                        Timestamp
-                                    </span>
-
-                                    <strong>
-                                        {new Date(
-                                            selectedIncident.timestamp
-                                        ).toLocaleString()}
-                                    </strong>
-                                </div>
-
-                            </div>
-
-
-                            {/* DESCRIPTION */}
-
-                            {selectedIncident.description && (
-
-                                <div className="detail-section">
-
-                                    <div className="eyebrow">
-                                        DESCRIPTION
-                                    </div>
-
-                                    <p>
-                                        {selectedIncident.description}
-                                    </p>
-
-                                </div>
-
-                            )}
-
-
-                            {/* AI ANALYSIS */}
-
-                            {selectedIncident.analysis && (
-
-                                <div className="detail-section">
-
-                                    <div className="eyebrow">
-                                        AI ANALYSIS
-                                    </div>
-
-
-                                    <h3>
-                                        {selectedIncident.analysis.category}
-                                    </h3>
-
-
-                                    <p>
-                                        {selectedIncident.analysis.summary}
-                                    </p>
-
-
-                                    <div>
-                                        <strong>
-                                            Urgency:
-                                        </strong>{" "}
-                                        {selectedIncident.analysis.urgency}
-                                    </div>
-
-                                </div>
-
-                            )}
-
-                        </div>
+                        <IncidentDetail
+                            incident={selectedIncident}
+                            onBack={() => setSelectedIncident(null)}
+                        />
 
                     ) : (
-
                         /* =========================
                            INCIDENT TABLE
                            ========================= */

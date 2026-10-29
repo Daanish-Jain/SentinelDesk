@@ -5,7 +5,7 @@ from app.managers.report_enrichment_manager import ReportEnrichmentManager
 from app.reporting.situation_report_generator import SituationReportGenerator
 from app.storage.incident_repository import IncidentRepository
 from app.storage.report_repository import ReportRepository
-
+from app.triage.triage_manager import TriageManager
 collector_manager = CollectorManager()
 deduplicator = DeduplicationManager()
 enrichment_manager = EnrichmentManager()
@@ -13,6 +13,7 @@ report_generator = SituationReportGenerator()
 report_enrichment_manager = ReportEnrichmentManager()
 repository = IncidentRepository()
 report_repository = ReportRepository()
+triage_manager = TriageManager()
 
 # Collect incidents
 incidents = collector_manager.collect_all()
@@ -22,6 +23,9 @@ incidents = deduplicator.deduplicate(incidents)
 
 # AI enrichment of incidents
 incidents = enrichment_manager.enrich(incidents)
+
+# Triage
+incidents = triage_manager.classify(incidents)
 
 # Save incidents
 repository.save(incidents)

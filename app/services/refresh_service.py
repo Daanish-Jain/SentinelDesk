@@ -5,7 +5,7 @@ from app.managers.report_enrichment_manager import ReportEnrichmentManager
 from app.reporting.situation_report_generator import SituationReportGenerator
 from app.storage.incident_repository import IncidentRepository
 from app.storage.report_repository import ReportRepository
-
+from app.triage.triage_manager import TriageManager
 
 class RefreshService:
 
@@ -17,6 +17,7 @@ class RefreshService:
         self.report_enrichment = ReportEnrichmentManager()
         self.incident_repository = IncidentRepository()
         self.report_repository = ReportRepository()
+        self.triage = TriageManager()
 
     def refresh(self):
         try:
@@ -29,6 +30,8 @@ class RefreshService:
 
             incidents = self.enrichment.enrich(incidents)
 
+            incidents = self.triage.classify(incidents)
+            
             self.incident_repository.save(incidents)
 
             report = self.report_generator.generate(incidents)

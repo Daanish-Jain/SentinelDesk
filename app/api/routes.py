@@ -7,6 +7,7 @@ from app.api.schemas import (
     SituationReportResponse,
     StatsResponse,
     RefreshResponse,
+    TriageResponse,
 )
 
 refresh_service = RefreshService()
@@ -56,6 +57,31 @@ def get_incident(incident_id: str):
         detail = "Incident not found"
     )
 
+@router.get("/triage", response_model=TriageResponse)
+def get_triage():
+
+    incidents = incident_repository.load()
+
+    immediate_action = []
+    active_monitoring = []
+    advisory = []
+
+    for incident in incidents:
+
+        if incident.triage_level == "Immediate Action":
+            immediate_action.append(incident)
+
+        elif incident.triage_level == "Active Monitoring":
+            active_monitoring.append(incident)
+
+        elif incident.triage_level == "Advisory":
+            advisory.append(incident)
+
+    return {
+        "immediate_action": immediate_action,
+        "active_monitoring": active_monitoring,
+        "advisory": advisory,
+    }
 
 @router.post("/refresh", response_model=RefreshResponse)
 def refresh_data():

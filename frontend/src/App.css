@@ -2156,3 +2156,1425 @@ button {
     flex-wrap: wrap;
   }
 }
+
+/* =========================================================
+   TRIAGE PAGE
+   ========================================================= */
+
+.triage-page {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 32px 28px 60px;
+}
+
+
+/* ---------------------------------------------------------
+   PAGE HEADER
+   --------------------------------------------------------- */
+
+.triage-page .page-header {
+  padding-bottom: 28px;
+
+  border-bottom: 1px solid #242a31;
+}
+
+.triage-page .page-header h1 {
+  margin: 6px 0 8px;
+
+  color: #edf0f4;
+
+  font-size: 38px;
+  line-height: 1.1;
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+}
+
+.triage-page .page-header p {
+  margin: 0;
+
+  color: #7f8b9a;
+
+  font-size: 14px;
+}
+
+
+/* ---------------------------------------------------------
+   TRIAGE OVERVIEW
+   --------------------------------------------------------- */
+
+.triage-overview {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin: 28px 0 40px;
+}
+
+.triage-overview-card {
+  position: relative;
+
+  min-height: 130px;
+
+  padding: 22px 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: #11151a;
+
+  border: 1px solid #252c34;
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.triage-overview-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 3px;
+}
+
+.triage-overview-card.immediate::before {
+  background: #e56b6f;
+}
+
+.triage-overview-card.monitoring::before {
+  background: #e0a458;
+}
+
+.triage-overview-card.advisory::before {
+  background: #5f8fb8;
+}
+
+.triage-overview-card span {
+  color: #7f8b9a;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+}
+
+.triage-overview-card strong {
+  color: #edf0f4;
+
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 600;
+
+  letter-spacing: -0.03em;
+}
+
+
+/* ---------------------------------------------------------
+   TRIAGE SECTION
+   --------------------------------------------------------- */
+
+.triage-section {
+  margin-bottom: 44px;
+}
+
+.triage-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+
+  border-bottom: 1px solid #252c34;
+}
+
+.triage-section-header h2 {
+  margin: 5px 0 0;
+
+  color: #e8edf2;
+
+  font-size: 22px;
+  font-weight: 600;
+
+  letter-spacing: -0.02em;
+}
+
+.triage-count {
+  min-width: 38px;
+  height: 32px;
+
+  padding: 0 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #303741;
+  border-radius: 6px;
+
+  background: #151a20;
+
+  color: #dce3eb;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* ---------------------------------------------------------
+   TRIAGE SECTION ACCENTS
+   --------------------------------------------------------- */
+
+.triage-immediate .triage-section-header {
+  border-bottom-color: rgba(229, 107, 111, 0.35);
+}
+
+.triage-monitoring .triage-section-header {
+  border-bottom-color: rgba(224, 164, 88, 0.35);
+}
+
+.triage-advisory .triage-section-header {
+  border-bottom-color: rgba(95, 143, 184, 0.35);
+}
+
+
+/* ---------------------------------------------------------
+   INCIDENT LIST
+   --------------------------------------------------------- */
+
+.triage-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+
+/* ---------------------------------------------------------
+   TRIAGE INCIDENT CARD
+   --------------------------------------------------------- */
+
+.triage-card {
+  padding: 20px 22px;
+
+  background: #11151a;
+
+  border: 1px solid #252c34;
+  border-radius: 9px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.triage-card:hover {
+  background: #14191f;
+
+  border-color: #36404b;
+
+  transform: translateY(-1px);
+}
+
+.triage-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.triage-incident-type {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #718094;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.triage-card h3 {
+  max-width: 900px;
+
+  margin: 0;
+
+  color: #e8edf2;
+
+  font-size: 17px;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.triage-card .severity-badge {
+  flex-shrink: 0;
+}
+
+
+/* ---------------------------------------------------------
+   TRIAGE CARD META
+   --------------------------------------------------------- */
+
+.triage-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px 22px;
+
+  margin-top: 16px;
+  padding-top: 14px;
+
+  border-top: 1px solid #20262d;
+
+  color: #7f8b9a;
+
+  font-size: 12px;
+}
+
+.triage-card-meta span {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+/* ---------------------------------------------------------
+   TRIAGE INTELLIGENCE
+   --------------------------------------------------------- */
+
+.triage-card-intelligence {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(130px, 1fr));
+
+  gap: 20px;
+
+  margin-top: 16px;
+  padding: 15px 0;
+
+  border-top: 1px solid #20262d;
+  border-bottom: 1px solid #20262d;
+}
+
+.triage-card-intelligence > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.triage-label {
+  color: #687687;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.13em;
+}
+
+.triage-card-intelligence strong {
+  color: #dce3eb;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+/* ---------------------------------------------------------
+   TRIAGE SUMMARY
+   --------------------------------------------------------- */
+
+.triage-summary {
+  margin: 15px 0 0;
+
+  color: #8d99a8;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  text-align: left;
+}
+
+
+/* ---------------------------------------------------------
+   INSPECT BUTTON
+   --------------------------------------------------------- */
+
+.triage-card-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 14px;
+  padding-top: 14px;
+
+  border-top: 1px solid #20262d;
+}
+
+.triage-inspect-button {
+  margin: 0 !important;
+
+  padding: 7px 12px !important;
+
+  border: 1px solid #303741 !important;
+  border-radius: 6px !important;
+
+  background: transparent !important;
+
+  color: #8fa8c2 !important;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.triage-inspect-button:hover {
+  background: #171d24 !important;
+
+  border-color: #4a5663 !important;
+
+  color: #dce3eb !important;
+}
+
+
+/* ---------------------------------------------------------
+   EMPTY STATE
+   --------------------------------------------------------- */
+
+.triage-empty {
+  padding: 28px;
+
+  border: 1px dashed #303741;
+  border-radius: 8px;
+
+  color: #6f7b8a;
+
+  font-size: 13px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   INCIDENT DETAIL
+   ========================================================= */
+
+.incident-detail {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 28px 30px 50px;
+
+  background: #101419;
+
+  border: 1px solid #272e36;
+  border-radius: 10px;
+
+  box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   BACK BUTTON
+   --------------------------------------------------------- */
+
+.incident-detail .back-button {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  margin: 0 0 30px;
+  padding: 8px 12px;
+
+  border: 1px solid #303741;
+  border-radius: 6px;
+
+  background: #151a20;
+
+  color: #8fa8c2;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.incident-detail .back-button:hover {
+  background: #1a2027;
+
+  border-color: #46515d;
+
+  color: #dce3eb;
+}
+
+
+/* ---------------------------------------------------------
+   DETAIL HEADER
+   --------------------------------------------------------- */
+
+.detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding-bottom: 26px;
+
+  border-bottom: 1px solid #252c34;
+}
+
+.detail-header > div:first-child {
+  min-width: 0;
+}
+
+.detail-header h2 {
+  max-width: 900px;
+
+  margin: 7px 0 8px;
+
+  color: #e8edf2;
+
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 600;
+
+  letter-spacing: -0.025em;
+
+  text-align: left;
+}
+
+.detail-header p {
+  margin: 0;
+
+  color: #718094;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  text-align: left;
+}
+
+.detail-header .severity-badge {
+  flex-shrink: 0;
+
+  margin-top: 4px;
+}
+
+
+/* ---------------------------------------------------------
+   DETAIL GRID
+   --------------------------------------------------------- */
+
+.detail-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1px;
+
+  margin-top: 24px;
+
+  background: #252c34;
+
+  border: 1px solid #252c34;
+  border-radius: 8px;
+
+  overflow: hidden;
+}
+
+.detail-grid > div {
+  min-width: 0;
+
+  padding: 17px 18px;
+
+  background: #14191f;
+}
+
+.detail-grid span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #687687;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+}
+
+.detail-grid strong {
+  display: block;
+
+  color: #dce3eb;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  line-height: 1.45;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* ---------------------------------------------------------
+   DETAIL SECTIONS
+   --------------------------------------------------------- */
+
+.detail-section {
+  margin-top: 24px;
+
+  padding: 22px 24px;
+
+  background: #14191f;
+
+  border: 1px solid #252c34;
+  border-radius: 8px;
+
+  box-sizing: border-box;
+}
+
+.detail-section .eyebrow {
+  margin-bottom: 14px;
+}
+
+
+/* ---------------------------------------------------------
+   DETAIL SECTION HEADINGS
+   --------------------------------------------------------- */
+
+.detail-section h3 {
+  margin: 0 0 12px;
+
+  color: #e8edf2;
+
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 600;
+
+  text-align: left;
+}
+
+
+/* ---------------------------------------------------------
+   DETAIL TEXT
+   --------------------------------------------------------- */
+
+.detail-section p {
+  max-width: 100%;
+
+  margin: 0;
+
+  color: #9ba7b5;
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  text-align: left;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* ---------------------------------------------------------
+   AI ANALYSIS
+   --------------------------------------------------------- */
+
+.detail-section > div:last-child {
+  margin-top: 18px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid #252c34;
+
+  color: #8d99a8;
+
+  font-size: 12px;
+}
+
+.detail-section > div:last-child strong {
+  color: #687687;
+
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   TRIAGE LEVEL
+   --------------------------------------------------------- */
+
+.detail-grid > div:last-child strong {
+  color: #9db5cc;
+}
+
+
+/* =========================================================
+   TRIAGE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .triage-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .triage-card-intelligence {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .incident-detail {
+    padding: 22px 20px 40px;
+  }
+
+  .detail-header {
+    flex-direction: column;
+
+    gap: 16px;
+  }
+
+  .detail-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .triage-page {
+    padding: 24px 16px 40px;
+  }
+
+  .triage-page .page-header h1 {
+    font-size: 30px;
+  }
+
+  .triage-card-top {
+    flex-direction: column;
+  }
+
+  .triage-card-intelligence {
+    grid-template-columns: 1fr;
+  }
+
+  .triage-card-meta {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .incident-detail {
+    padding: 18px 16px 30px;
+
+    border-radius: 8px;
+  }
+
+  .detail-header h2 {
+    font-size: 22px;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-section {
+    padding: 18px;
+  }
+
+  .detail-section p {
+    font-size: 12px;
+
+    line-height: 1.7;
+  }
+  /* =========================================================
+   SOURCE ALERT
+   ========================================================= */
+
+  .source-alert-section {
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #101419;
+  }
+
+
+  /* ---------------------------------------------------------
+    SOURCE ALERT HEADER
+    --------------------------------------------------------- */
+
+  .source-alert-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  padding: 20px 24px;
+
+  background: #14191f;
+
+  border-bottom: 1px solid #252c34;
+}
+
+.source-alert-header > div {
+  min-width: 0;
+}
+
+.source-alert-header h3 {
+  margin: 6px 0 0;
+
+  color: #e8edf2;
+
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 600;
+
+  text-align: left;
+}
+
+.source-alert-badge {
+  flex-shrink: 0;
+
+  align-self: center;
+
+  padding: 5px 9px;
+
+  border: 1px solid #303741;
+  border-radius: 5px;
+
+  background: #171c22;
+
+  color: #738194;
+
+  font-size: 8px;
+  font-weight: 650;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+  /* ---------------------------------------------------------
+    SOURCE ALERT CONTENT
+    --------------------------------------------------------- */
+
+  .source-alert-content {
+    padding: 4px 24px;
+  }
+
+  .source-alert-block {
+  padding: 18px 0;
+
+  border-bottom: 1px solid #20262d;
+}
+
+.source-alert-block:last-child {
+  border-bottom: none;
+}
+
+.source-alert-heading {
+  margin-bottom: 8px;
+
+  color: #9aaabd;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.source-alert-block p {
+  max-width: 100%;
+
+  margin: 0;
+
+  color: #8f9cab;
+
+  font-size: 12px;
+  line-height: 1.7;
+
+  text-align: left;
+}
+
+  .source-alert-block:last-child {
+    border-bottom: none;
+  }
+
+
+  /* ---------------------------------------------------------
+    SECTION HEADING
+    --------------------------------------------------------- */
+
+  .source-alert-heading {
+    margin-bottom: 9px;
+
+    color: #aebbc8;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+
+  /* ---------------------------------------------------------
+    SECTION CONTENT
+    --------------------------------------------------------- */
+
+  .source-alert-block p {
+    margin: 0;
+
+    color: #929eac;
+
+    font-size: 12px;
+    line-height: 1.75;
+
+    text-align: left;
+
+    overflow-wrap: anywhere;
+  }
+
+
+  /* ---------------------------------------------------------
+    HIGHLIGHT IMPORTANT SOURCE TERMS
+    --------------------------------------------------------- */
+
+  .source-alert-block p {
+    white-space: normal;
+  }
+
+
+  /* ---------------------------------------------------------
+    SOURCE ALERT RESPONSIVE
+    --------------------------------------------------------- */
+
+  @media (max-width: 600px) {
+
+    .source-alert-header {
+      align-items: flex-start;
+
+      flex-direction: column;
+
+      padding: 18px;
+    }
+
+    .source-alert-content {
+      padding: 4px 18px;
+    }
+
+    .source-alert-block {
+      padding: 17px 0;
+    }
+
+    .source-alert-block p {
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+  }
+  /* =========================================================
+   AI INTELLIGENCE
+   ========================================================= */
+
+  .ai-intelligence-section {
+    padding: 0;
+
+    overflow: hidden;
+
+    border-color: #303943;
+
+    background: #101419;
+  }
+
+
+  /* ---------------------------------------------------------
+    AI HEADER
+    --------------------------------------------------------- */
+
+  .ai-intelligence-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px 24px;
+
+    background: #151a20;
+
+    border-bottom: 1px solid #272f38;
+  }
+
+  .ai-intelligence-header h3 {
+    margin: 5px 0 0;
+
+    color: #edf0f4;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    text-align: left;
+  }
+
+
+  /* ---------------------------------------------------------
+    AI URGENCY
+    --------------------------------------------------------- */
+
+  .ai-urgency-badge {
+    flex-shrink: 0;
+
+    padding: 7px 11px;
+
+    border: 1px solid #303741;
+    border-radius: 5px;
+
+    background: #171c22;
+
+    color: #aeb7c2;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .ai-urgency-badge.urgency-critical,
+  .ai-urgency-badge.urgency-high {
+    border-color: rgba(228, 119, 110, 0.35);
+
+    background: rgba(228, 119, 110, 0.08);
+
+    color: #e4776e;
+  }
+
+  .ai-urgency-badge.urgency-moderate {
+    border-color: rgba(210, 174, 104, 0.3);
+
+    background: rgba(210, 174, 104, 0.08);
+
+    color: #d2ae68;
+  }
+
+  .ai-urgency-badge.urgency-low,
+  .ai-urgency-badge.urgency-minor {
+    border-color: #303741;
+
+    color: #929eab;
+  }
+
+
+  /* ---------------------------------------------------------
+    AI SUMMARY
+    --------------------------------------------------------- */
+
+  .ai-summary {
+    padding: 22px 24px;
+
+    border-bottom: 1px solid #20262d;
+  }
+
+  .ai-section-label {
+    margin-bottom: 10px;
+
+    color: #687687;
+
+    font-size: 9px;
+    font-weight: 650;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .ai-summary p {
+    margin: 0;
+
+    color: #b6c0cb;
+
+    font-size: 13px;
+    line-height: 1.75;
+
+    text-align: left;
+  }
+
+
+  /* ---------------------------------------------------------
+    AI REASONING
+    --------------------------------------------------------- */
+
+  .ai-reasoning {
+    padding: 20px 24px;
+
+    border-bottom: 1px solid #20262d;
+  }
+
+  .ai-reasoning-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+  }
+
+  .ai-reasoning-item {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 11px;
+
+    color: #929eac;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    text-align: left;
+  }
+
+  .ai-reasoning-marker {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #303741;
+    border-radius: 50%;
+
+    background: #171c22;
+
+    color: #718094;
+
+    font-size: 9px;
+    font-weight: 600;
+  }
+
+
+  /* ---------------------------------------------------------
+    AI ENTITIES
+    --------------------------------------------------------- */
+
+  .ai-entities {
+    padding: 20px 24px;
+  }
+
+  .ai-entity-groups {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .ai-entity-group {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 18px;
+  }
+
+  .ai-entity-label {
+    width: 100px;
+
+    flex-shrink: 0;
+
+    color: #697789;
+
+    font-size: 9px;
+    font-weight: 650;
+
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .ai-entity-values {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+  }
+
+  .ai-entity {
+    padding: 5px 8px;
+
+    border: 1px solid #303741;
+    border-radius: 5px;
+
+    background: #171c22;
+
+    color: #9ba7b5;
+
+    font-size: 10px;
+  }
+
+
+  /* ---------------------------------------------------------
+    AI RESPONSIVE
+    --------------------------------------------------------- */
+
+  @media (max-width: 600px) {
+
+    .ai-intelligence-header {
+      align-items: flex-start;
+
+      flex-direction: column;
+
+      padding: 18px;
+    }
+
+    .ai-summary,
+    .ai-reasoning,
+    .ai-entities {
+      padding: 18px;
+    }
+
+    .ai-entity-group {
+      flex-direction: column;
+
+      gap: 7px;
+    }
+
+  }
+}
+
+/* =========================================================
+   TRIAGE FILTER PANEL
+   ========================================================= */
+
+.triage-filter-panel {
+  margin-bottom: 38px;
+
+  padding: 20px 22px;
+
+  background: #11151a;
+
+  border: 1px solid #252c34;
+  border-radius: 9px;
+}
+
+
+/* ---------------------------------------------------------
+   FILTER HEADER
+   --------------------------------------------------------- */
+
+.triage-filter-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid #20262d;
+}
+
+.triage-filter-header h2 {
+  margin: 5px 0 0;
+
+  color: #e8edf2;
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.triage-filter-results {
+  color: #718094;
+
+  font-size: 11px;
+}
+
+
+/* ---------------------------------------------------------
+   FILTER CONTROLS
+   --------------------------------------------------------- */
+
+.triage-filters {
+  display: flex;
+  align-items: flex-end;
+
+  gap: 14px;
+
+  padding-top: 18px;
+}
+
+.triage-search {
+  flex: 1;
+  min-width: 0;
+}
+
+.triage-severity-filter {
+  width: 190px;
+  flex-shrink: 0;
+}
+
+.triage-search label,
+.triage-severity-filter label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #687687;
+
+  font-size: 9px;
+  font-weight: 650;
+
+  letter-spacing: 0.13em;
+}
+
+
+/* ---------------------------------------------------------
+   INPUT
+   --------------------------------------------------------- */
+
+.triage-search input,
+.triage-severity-filter select {
+  width: 100%;
+  height: 38px;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #303741;
+  border-radius: 6px;
+
+  outline: none;
+
+  background: #151a20;
+
+  color: #dce3eb;
+
+  font-family: inherit;
+  font-size: 12px;
+
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+
+.triage-search input::placeholder {
+  color: #5f6b79;
+}
+
+.triage-search input:focus,
+.triage-severity-filter select:focus {
+  border-color: #4a5663;
+
+  background: #171d24;
+}
+
+
+/* ---------------------------------------------------------
+   SELECT
+   --------------------------------------------------------- */
+
+.triage-severity-filter select {
+  cursor: pointer;
+}
+
+
+/* ---------------------------------------------------------
+   CLEAR FILTERS
+   --------------------------------------------------------- */
+
+.triage-clear-button {
+  height: 38px;
+
+  margin: 0 !important;
+
+  padding: 0 13px !important;
+
+  flex-shrink: 0;
+
+  border: 1px solid #303741 !important;
+  border-radius: 6px !important;
+
+  background: transparent !important;
+
+  color: #8fa8c2 !important;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.triage-clear-button:hover {
+  background: #171d24 !important;
+
+  border-color: #4a5663 !important;
+
+  color: #dce3eb !important;
+}
+
+
+/* =========================================================
+   TRIAGE FILTER RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .triage-filter-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .triage-filters {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+  .triage-severity-filter {
+    width: 100%;
+  }
+
+  .triage-clear-button {
+    width: 100%;
+  }
+
+}

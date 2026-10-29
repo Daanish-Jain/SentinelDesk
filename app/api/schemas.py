@@ -18,8 +18,6 @@ class IncidentResponse(BaseModel):
     incident_type: str
     title: str
 
-    latitude: float
-    longitude: float
     location: str
 
     severity_score: float
@@ -30,9 +28,16 @@ class IncidentResponse(BaseModel):
 
     raw_data: dict[str, Any]
     description: str | None = None
-
+    triage_level: str | None = None
+    
+    latitude: float | None = None
+    longitude: float | None = None
     analysis: AIAnalysisResponse | None = None
     
+class TriageResponse(BaseModel):
+    immediate_action: list[IncidentResponse]
+    active_monitoring: list[IncidentResponse]
+    advisory: list[IncidentResponse]
     
 class SituationReportResponse(BaseModel):
     generated_at: datetime

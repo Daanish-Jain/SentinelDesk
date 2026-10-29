@@ -3,6 +3,7 @@ import type {
   SituationReport,
   Stats,
   RefreshResponse,
+  TriageResponse,
 } from "../types/incident";
 
 const API_BASE_URL = "http://127.0.0.1:8000";
@@ -50,6 +51,16 @@ export async function refreshData(): Promise<RefreshResponse> {
 
   if (!response.ok) {
     throw new Error("Failed to refresh SentinelDesk data");
+  }
+
+  return response.json();
+}
+
+export async function getTriage(): Promise<TriageResponse> {
+  const response = await fetch(`${API_BASE_URL}/triage`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch triage data");
   }
 
   return response.json();

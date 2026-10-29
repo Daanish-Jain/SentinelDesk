@@ -27,6 +27,14 @@ export interface Incident {
     description?: string;
 
     analysis?: AIAnalysis;
+
+    triage_level?: string;
+}
+
+export interface TriageResponse {
+    immediate_action: Incident[];
+    active_monitoring: Incident[];
+    advisory: Incident[];
 }
 
 export interface SituationReport {
